@@ -1234,7 +1234,7 @@
 // let elem=document.querySelector("#elem");
 // let elem1=document.getElementById("elem-content");
 // console.log(elem)
-// let spisok=document.querySelector("ul>li:last-child");
+// let spisok=document.querySelectorAll("ul>li:last-child");
 // console.log(spisok)
 // for (let elem3 of spisok)
 // {
@@ -1245,11 +1245,11 @@
 
 // let elem=document.querySelector("#elem");
 
-// let elem=document.querySelector(".elem");
-// let elem=document.querySelector("div");
+// // let elem=document.querySelector(".elem");
+// // let elem=document.querySelector("div");
 // let elem1=document.getElementById("elem-content");
 // console.log(elem)
-// let spisok=document.querySelector("ul>li:last-child");
+// let spisok=document.querySelectorAll("ul>li:last-child");
 // console.log(spisok)
 // for (let elem of spisok)
 // {
@@ -1259,7 +1259,7 @@
 
 
 
-// let spisok=document.querySelector("ul>label:last-child");
+// let spisok=document.querySelectorAll("elem:last-child");
 // console.log(spisok)
 // for (let elem of spisok)
 // {
@@ -1268,7 +1268,7 @@
 
 
 
-// let spisok=document.querySelector("form>input:last-child");
+// let spisok=document.querySelectorAll("form>input:last-child");
 // console.log(spisok)
 // for (let elem of spisok)
 // {
@@ -1290,20 +1290,22 @@
 // console.log(elem.dataset.widgetName);
 
 // let parentDiv=document.createElement('div')
-// div.className="one_div";
+// parentDiv.className="one_div";
 // let childDiv=document.createElement('div')
-// div.className="child_div"
+// childDiv.className="child_div"
 // let childchildDiv=document.createElement('div')
-// div.className="child_child_div"
-
+// childchildDiv.className="child_child_div"
 // parentDiv.style.background="red";
 // parentDiv.style.padding="20px";
 // childDiv.style.background="green";
+// childDiv.style.padding="20px";
 // childchildDiv.style.background="blue";
-
+// childchildDiv.style.padding="20px";
 // parentDiv.appendChild(childDiv);
-// parentDivDiv.appendChild(childchildDiv);
+// parentDiv.appendChild(childchildDiv);
 // document.body.appendChild(parentDiv);
+// document.body.appendChild(childDiv);
+// document.body.appendChild(childchildDiv);
 
 
 // let form=document.createElement("form");
@@ -1520,7 +1522,7 @@
 //     console.log(event.target.innerHTML)
 // })
 
-// let elem=document.querySelectorAll("button");
+// 57let elem=document.querySelectorAll("button");
 // elem.forEach(button=>{
 //     button.addEventListener("click",function(event){
 //         if(event.target.dataset.counter!=undefined){
@@ -1535,20 +1537,20 @@
 //     }
 // })
 
-//58 document.addEventListener("click",function(event){
+//  document.addEventListener("click",function(event){
 //     if(event.target.dataset.user=="admin"){
 //         document.body.style.backgroundColor="red";
 //     }
 // })
 
-// 59document.addEventListener("click",function(event){
+//59 document.addEventListener("click",function(event){
 //     let id=event.target.dataset.toggleId;
 //     if (!id) return;
 //     let elem=document.getElementById(id);
 //     elem.hidden=!elem.hidden;
 // })
 
-// 60 document.addEventListener("click",function(event){
+//60 document.addEventListener("click",function(event){
 //     let id=event.target.dataset.toggleId;
 //     if (id) return;
 //     let elem=document.getElementById(id);
@@ -1557,13 +1559,13 @@
 
 
 
-// 61let butttons=document.querySelectorAll(".remove");
-// butttons.forEach(button=>{
-//     button.addEventListener("click",function(){
-//         // button.parentElement.remove();
-//         button.closest(".message").remove();
-//     });
-// });
+// //60 document.addEventListener("click",function(event){
+//     let id=event.target.dataset.toggleId;
+//     if (id) return;
+//     let elem=document.getElementById(id);
+//     elem.hidden=elem.hidden;
+// })
+
 
 
 // 62let field=document.getElementById("field");
@@ -1586,8 +1588,10 @@
 // window.onload=function(){
 //     alert("Страница загружена")
 // }
+
+
 // отправка данных на сервер
-// let analitsData={user:"Admin",time=120};
+// let analitsData={user:"Admin",time:120};
 // window.addEventListener("unload",function(){
 //     console.log("Пользователь ушел")
 // })
@@ -1613,30 +1617,27 @@
 
 
 // открытие окна
-// let button=document.getElementById("open");
+// 65let button=document.getElementById("open");
 // button.addEventListener("click",function(){
 //     let popup=window.open("","myWindow","width=400,height=300");
-//     popup.document.write(<h1>Это окно попап</h1>)
+//     popup.document.write('<h1> Это окно попап </h1>')
 // })
 
 
 
-// 63let button=document.getElementById("open");
+// 65let button=document.getElementById("open");
 // button.addEventListener("click",function(){
-//     window.open("https://ya.ru");
-    
-
+//     window.open("https://ya.ru");  
 // })
 
 
 //   закрытие всплывающего окна
 // window.open("https://google.com");
-// 63let button=document.getElementById("open");
+// let button=document.getElementById("open");
 // button.addEventListener("click",function(){
-//     window.open("https://ya.ru");
-    
-
+//     window.open("https://ya.ru");   
 // })
+
 
 // Синтаксис открытия нового окна: window.open(url, name, params):
 // url – URL для загрузки в новом окне.
@@ -1666,9 +1667,9 @@
 // button.addEventListener("click",function(){
 //     let windows=window.open("","myWindow","width=400,height=300");
 //     windows.document.write(<h1>Это окно Ивана</h1>)
-// }
+// })
 
-// 65let popup;
+// let popup;
 // let button=document.getElementById("open");
 // button.addEventListener("click",function(){
 //     popup=window.open("popup.html","","width=400,height=300");
@@ -1698,5 +1699,270 @@
 //  только в том случае, если родительский документ находится на указанном в заголовке домене.
 // Например, Twitter использует X-Frame-Options: SAMEORIGIN.
 
+// let now = new Date(1983,6,25);
+// alert( now ); // показывает текущие дату и время
+
+// // 0 соответствует 01.01.1970 UTC+0
+// let Jan01_1970 = new Date(0);
+// alert( Jan01_1970 );
+
+// // теперь добавим 24 часа и получим 02.01.1970 UTC+0
+// let Jan02_1970 = new Date(24 * 3600 * 1000);
+// alert( Jan02_1970 );
+
+// let date = new Date("2017-01-26");
+// alert(date);
+// // Время не указано, поэтому оно ставится в полночь по Гринвичу и
+// // меняется в соответствии с часовым поясом места выполнения кода
+// // Так что в результате можно получить
+// // Thu Jan 26 2017 11:00:00 GMT+1100 (восточно-австралийское время)
+// // или
+// // Wed Jan 25 2017 16:00:00 GMT-0800 (тихоокеанское время)
+
+// new Date(year, month, date, hours, minutes, seconds, ms)
+// let date=new Date(2025, 12, 23, 23, 56, 56);
+// alert(date);
+
+// Существуют методы 
+// получения года, месяца и т.д. из объекта Date:
+// getFullYear()
+// Получить год (4 цифры)
+// getMonth()
+// Получить месяц, от 0 до 11.
+// getDate()
+// Получить день месяца, от 1 до 31,
+//  что несколько противоречит названию метода.
+// getHours(), getMinutes(), getSeconds(), getMilliseconds()
+// Получить, соответственно, часы, минуты,
+//  секунды или миллисекунды.
+// getDay()
+// Вернуть день недели от 0 (воскресенье) до 6
+//  (суббота). Несмотря на то, что в ряде стран за
+//   первый день недели принят понедельник, в 
+//   JavaScript начало недели приходится на 
+
+// setFullYear(year, [month], [date])
+// setMonth(month, [date])
+// setDate(date)
+// setHours(hour, [min], [sec], [ms])
+// setMinutes(min, [sec], [ms])
+// setSeconds(sec, [ms])
+// setMilliseconds(ms)
+// setTime(milliseconds) (устанавливает дату
+//      в виде целого количества миллисекунд, прошедших с 01.01.1970 UTC)
+
+// let New_date=new Date(9999,12,23);
+// alert(New_date);
+
+// let date=new Date();
+// alert(date.getFullYear());
+
+// let date = new Date();
+// alert(+date); // количество миллисекунд,
+// //  то же самое, что date.getTime()
+
+// let start = new Date(); // начинаем отсчёт времени
+// // выполняем некоторые действия
+// for (let i = 0; i < 100000; i++) {
+//      let doSomething =( i * i * i);
+// }
+// let end = new Date(); // заканчиваем отсчёт времени
+// alert( `Цикл отработал за ${end - start} миллисекунд` );
+
+// Существует особый метод Date.now(), возвращающий текущую метку времени
+
+// Метод Date.parse(str) считывает дату из строки.
+// Формат строки должен быть следующим: YYYY-MM-DDTHH:mm:ss.sssZ, где
+// YYYY-MM-DD – это дата: год-месяц-день.
+// Символ "T" используется в качестве разделителя.
+// HH:mm:ss.sss – время: часы, минуты, секунды и миллисекунды.
+// Необязательная часть 'Z' обозначает часовой пояс в формате +-hh:mm.
+//  Если указать просто букву Z, то получим UTC+0.
+
+// let date = new Date( Date.parse('2012-02-20T3:12:50.417-07:00') );
+// alert(date);
+
+// let date = new Date(2012,2,20,3,12);
+// alert(date);
+
+// function getDays(date){
+//     let days=["вс","пн","вт","ср","чт","пт","сб"]
+//     let res=days[date.getDay()];
+//     alert(res);
+// }
+// let new_day=new Date(2026,4,15);
+// getDays(new_day);
+
+
+
+// function getDateAgo(date, days){
+//     let res=new Date(date);
+//     res.setDate(date.getDate()-days);
+//     return res.getDate();
+// }
+// let new_day=new Date(2026,4,18);
+// alert(getDateAgo(new_day,89));
+
+
+// function getDateAgo(date, days) {
+//  // Создаём копию исходной даты, чтобы не изменять её
+//  let targetDate = new Date(date);
+ 
+//  // Вычитаем указанное количество дней
+//  targetDate.setDate(targetDate.getDate()-days);
+ 
+//  // Возвращаем день месяца (число от 1 до 31)
+//  return targetDate.getDate();
+// }
+// let new_day=new Date(2026,4,18);
+// alert(getDateAgo(new_day,89));
+
+// function getSecondsToTomorrow() {
+//  // Получаем текущую дату и время
+//  let now = new Date();
+//  // Создаём дату для завтрашнего дня (без времени — 00:00:00)
+//  let tomorrow = new Date(now.getFullYear(), now.getMonth(), 
+//  now.getDate() + 1);
+//  // Вычисляем разницу в миллисекундах
+//  let diffInMilliseconds = tomorrow - now;
+//  // Переводим миллисекунды в секунды (делим на 1000)
+//  return Math.floor(diffInMilliseconds / 1000);
+// }
+// let new_day=new Date(2026,4,12);
+// alert(getSecondsToTomorrow(new_day));
+
+
+// function getDateAgo(date){
+//     let res=new Date();
+//     let hours=res.getHours();
+//     let minuts=res.getMinutes();
+//     let secund=res.getSeconds();
+//     return 24*3600-(hours*3600+minuts*60+secund);
+// }
+// let new_day=new Date();
+// alert(getDateAgo(new_day))
+
+// setTimeout позволяет вызвать функцию один раз
+//  через определённый интервал времени.
+// setInterval позволяет вызывать функцию регулярно,
+//  повторяя вызов через определённый интервал времени.
+
+// setTimeout(function(){
+//     alert("Прошло 5 секунд")
+// },5000);
+
+// setInterval(function(){
+//     console.log("tik");
+// },7000);
+
+
+
+// function sayHi() {
+// alert('Привет');
+//  }
+//  setInterval(sayHi, 1000);
+
+//  let interval;
+
+// window.onfocus = () => {
+//   interval = setInterval(() => console.log('Вы ещё здесь?'), 10000); // 10 секунд
+// };
+
+// window.onblur = () => {
+//   clearInterval(interval);
+// };
+
+
+
+// // 67Получаем все элементы-огни
+//  let lights = document.querySelectorAll('.light');
+ 
+//  // Получаем кнопку
+//  let stopButton = document.getElementById('stopButton');
+ 
+//  // Функция для выключения всех огней
+//  function turnOffAllLights() {
+//  lights.forEach(light => {
+//  light.style.backgroundColor='white'; // Серый цвет — «выключен»
+// });
+// }
+ 
+//  // Привязываем обработчик к кнопке
+//  stopButton.addEventListener('click', turnOffAllLights);
+
+
+
+
+// 68 var lightStates = {red:0,amber:1,green:2};
+// var currentState = lightStates.red;
+
+// document.getElementById('changeBtn').onclick=function(){
+//     changeState();
+// };
+
+
+// function changeState()
+// {
+//     clear();
+//   switch(currentState)
+//   {
+//     case lightStates.red:
+//     {
+//       document.getElementById("red").className ="red";
+//       currentState =  lightStates.amber;
+//     }
+//     break;
+//     case lightStates.amber:
+//     {
+//       document.getElementById("amber").className ="amber";
+//       currentState = lightStates.green;
+//     } break;
+//      case lightStates.green:
+//     {
+//       document.getElementById("green").className ="green";
+//       currentState = lightStates.red;
+//     } break;
+//    }
+// }
+
+// function clear(){
+//    document.getElementById("red").className ="light";
+//    document.getElementById("amber").className ="light";
+//    document.getElementById("green").className ="light";
+// }
+
+
+// Создаём таблицу
+let table = document.createElement('table');
+table.style.width = '500px'; // задаём ширину таблицы
+table.style.height = '500px';
+table.style.border = '1px solid black';
+ // задаём высоту таблицы
+document.body.appendChild(table);
+
+// Добавляем строки и ячейки
+for (let i = 0; i < 10; i++) {
+    let tr = document.createElement('tr');
+    table.appendChild(tr);
+    for (let j = 0; j < 10; j++) {
+        let td = document.createElement('td');
+        td.style.border="1px solid black"
+        tr.appendChild(td);
+    }
+}
+
+// Получаем все строки таблицы
+let rows = document.querySelectorAll('tr');
+
+// Перебираем строки и ячейки
+for (let i = 0; i < rows.length; i++) {
+    // Получаем ячейку на диагонали
+    let cell = rows[i].children[i+1];
+    
+    // Устанавливаем красный цвет фона для этой ячейки
+    cell.style.backgroundColor = 'red';
+    cell.style.border = '1px solid black';
+
+}
 
 
