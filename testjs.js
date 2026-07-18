@@ -6436,6 +6436,9 @@
 // });
 
 
+
+
+
 // class Text {
 //   constructor(text) {
 //     this.text = text || '';
@@ -6643,3 +6646,854 @@
 //     }
 // }
 // let cart=new Cart
+
+
+
+// 116// Получаем элементы
+// const productButtons = document.querySelectorAll('.add-to-cart');
+// const cartDisplay = document.getElementById('content');
+// const clearButton = document.getElementById('clearCart');
+
+// // Функция для добавления товара в корзину
+// function addToCart() {
+//   // Получаем данные из корзины или создаем новый объект, если данных нет
+//   const cartData = getCartData() || {};
+
+//   // Получаем данные о товаре
+//   const itemId = this.getAttribute('data-id');
+//   const parentBox = this.parentNode;
+//   const itemTitle = parentBox.querySelector('.title').textContent;
+//   const itemPrice = parseFloat(parentBox.querySelector('.price').textContent.replace(' ₽', ''));
+
+//   // Если товар уже есть в корзине, увеличиваем количество, иначе добавляем
+//   if (cartData.hasOwnProperty(itemId)) {
+//     cartData[itemId][2]++; // увеличиваем количество
+//   } else {
+//     cartData[itemId] = [itemTitle, itemPrice, 1]; // [title, price, quantity]
+//   }
+
+//   // Сохраняем обновлённые данные в localStorage
+//   setCartData(cartData);
+
+//   // Блокируем кнопку на время работы
+//   this.disabled = true;
+
+//   // Разблокируем кнопку через 1 секунду
+//   setTimeout(() => {
+//     this.disabled = false;
+//   }, 1000);
+// }
+
+// // Получаем данные из localStorage
+// function getCartData() {
+//   const data = localStorage.getItem('cart');
+//   return data ? JSON.parse(data) : null;
+// }
+
+// // Сохраняем данные в localStorage
+// function setCartData(data) {
+//   localStorage.setItem('cart', JSON.stringify(data));
+// }
+
+// // Отображаем содержимое корзины
+// document.getElementById('cartBtn').addEventListener('click', () => {
+//   const cartData = getCartData();
+//   if (cartData) {
+//     cartDisplay.innerHTML = ''; // Очищаем предыдущий вывод
+
+//     // Создаём таблицу
+//     const table = document.createElement('table');
+//     table.border = "1";
+
+//     // Заголовок таблицы
+//     const headerRow = document.createElement('tr');
+//     ['Товар', 'Цена', 'Количество'].forEach(text => {
+//       const th = document.createElement('th');
+//       th.textContent = text;
+//       headerRow.appendChild(th);
+//     });
+//     table.appendChild(headerRow);
+
+//     let totalQuantity = 0;
+//     let totalPrice = 0;
+
+//     // Заполняем таблицу товарами
+//     for (const id in cartData) {
+//       const item = cartData[id];
+//       const row = document.createElement('tr');
+
+//       // Название товара
+//       const titleTd = document.createElement('td');
+//       titleTd.textContent = item[0];
+//       row.appendChild(titleTd);
+
+//       // Цена товара
+//       const priceTd = document.createElement('td');
+//       priceTd.textContent = `${item[1]} ₽`;
+//       row.appendChild(priceTd);
+
+//       // Количество
+//       const quantityTd = document.createElement('td');
+//       quantityTd.textContent = item[2];
+//       row.appendChild(quantityTd);
+
+//       table.appendChild(row);
+
+//       // Обновляем итоги
+//       totalQuantity += item[2];
+//       totalPrice += item[1] * item[2];
+//     }
+
+//     // Добавляем строки итогов
+//     const totalsRow1 = document.createElement('tr');
+//     totalsRow1.innerHTML = `<td colspan="2">Итого товаров:</td><td>${totalQuantity}</td>`;
+//     table.appendChild(totalsRow1);
+
+//     const totalsRow2 = document.createElement('tr');
+//     totalsRow2.innerHTML = `<td colspan="2">Общая сумма:</td><td>${totalPrice} ₽</td>`;
+//     table.appendChild(totalsRow2);
+
+//     cartDisplay.appendChild(table);
+//   } 
+//   else {
+//     cartDisplay.innerHTML = '<p>Корзина пуста</p>';
+//   }
+// });
+
+// // Очистка корзины
+// clearButton.addEventListener('click', () => {
+//   localStorage.removeItem('cart');
+//   cartDisplay.innerHTML = '<p>Корзина очищена</p>';
+// });
+
+// // Назначаем обработчики событий для кнопок добавления в корзину
+// productButtons.forEach(button => {
+//   button.addEventListener('click', addToCart);
+// });
+
+
+
+// Получаем элементы
+// const dob_korzinu=document.querySelectorAll(".dob_korzinu");
+// const soderghanie=document.getElementById("soderghanie");
+// const ochistity_korzinu=document.getElementById("ochistity_korzinu");
+
+// //Функция добавления товара в корзину
+// function dob_v_kozinu(){
+//   //получаем данные из корзины
+//   const dannie_korzini=polKorzDannie()||{};
+//   //получаем данные о товаре
+//   const predmetId=this.getAttribute("data-id");
+//   const roditeli=this.parentNode;
+//   const predmet_nazvanie=roditeli.querySelector(".nazvan").textContent;
+//   const predmet_cena=parseFloat(roditeli.querySelector('.cena').textContent.replace(' ₽',''));
+//   if(dannie_korzini.hasOwnProperty(predmetId)){
+//     dannie_korzini[predmetId][2]++;//увеличиваем количество
+//   }
+//   else{
+//     dannie_korzini[predmetId]=[predmet_nazvanie,predmet_cena,1];//[nazvan,cena,kolvo]
+//   }
+//   //Сохраняем обновленные данные в localStorage
+//   setKorzinaDannie(dannie_korzini);
+//   //Блокируем кнопку на время работы
+//   this.disabled=true;
+//   //Разблокируем кнопку через секунду
+//   setTimeout(()=>{
+//     this.disabled=false;
+//   },1000);
+// }
+
+
+// //Функция получаем данные из localStorage
+// function polKorzDannie(){
+//   const dannie=localStorage.getItem('korzina');
+//   return dannie?JSON.parse(dannie):null;
+// }
+
+// //Сохраняем данные в localStorage
+// function setKorzinaDannie(dannie){
+//   localStorage.setItem('korzina',JSON.stringify(dannie));
+// }
+
+
+// //Отображаем содержимое корзины
+// document.getElementById('korz_knopky').addEventListener('click',()=>{
+//   const dannie_korzini=polKorzDannie();
+//   if(dannie_korzini){
+//     soderghanie.innerHTML='';//Очищаем предыдущий вывод
+//     //Создаем таблицу
+//     const tablica=document.createElement('table');
+//     tablica.border="2";
+//     //Заголовок таблицы
+//     const zagol_stroky=document.createElement('tr');
+//     ["Товар","Цена","Количество","Прибыль","Зарплата"].forEach(text=>{
+//       const th=document.createElement('th');
+//       th.textContent=text;
+//       zagol_stroky.appendChild(th);
+//     });
+//     tablica.appendChild(zagol_stroky);
+//     let totalKolvo=0;
+//     let totalCena=0;
+//     let totalPribily=0;
+//     let totalZarplata=0;
+//     //Заполняем таблицу товарами
+//     for(const id in dannie_korzini){
+//       const predmet=dannie_korzini[id];
+//       const stroka=document.createElement('tr');
+//       //Название товара
+//       const nazvan_tov=document.createElement('td');
+//       nazvan_tov.textContent=predmet[0];
+//       stroka.appendChild(nazvan_tov)
+//       //Цена товара
+//       const cena_tovara=document.createElement('td');
+//       cena_tovara.textContent=`${predmet[1]} ₽ `;
+//       stroka.appendChild(cena_tovara);
+//       //Количество
+//       const kolvo_tovara=document.createElement('td');
+//       kolvo_tovara.textContent=predmet[2];
+//       stroka.appendChild(kolvo_tovara);
+//       //Прибыль от товара
+//       const pribily=document.createElement('td');
+//       pribily.textContent=predmet[3];
+//       stroka.appendChild(pribily);
+//       //Зарплата
+//       const zarplata=document.createElement('td');
+//       zarplata.textContent=predmet[4];
+//       stroka.appendChild(zarplata);
+//       tablica.appendChild(stroka);
+//       //Обновляем итоги
+//       totalKolvo+=predmet[2];
+//       totalCena+=predmet[1]*predmet[2];
+//       totalPribily+=totalCena*20/100;
+//       totalZarplata+=totalPribily*67/100;
+
+//     }
+//     //Добавляем строки итогов
+//     const total_zagol1=document.createElement('tr');
+//     total_zagol1.innerHTML=`<td colspan="5" >Цена 1 товара</td><td>Кол-во товара</td><td>Общая сумма</td><td>Прибыль</td><td>Зарплата</td>`;
+//     tablica.appendChild(total_zagol1);
+
+//     const total_zagol2=document.createElement('tr');
+//     total_zagol2.innerHTML=`<td colspan="5">1000p</td><td>${totalKolvo}</td><td>${totalCena}</td><td>${totalPribily}</td><td>${totalZarplata}</td>`;
+//     tablica.appendChild(total_zagol2);
+//     soderghanie.appendChild(tablica);
+
+//   }
+//   else {
+//     soderghanie.innerHTML='<p>Корзина пуста.</p>';
+//   }
+// })
+// //Очистка корзины
+// ochistity_korzinu.addEventListener('click',()=>{
+//   localStorage.removeItem('karzina');
+//   soderghanie.innerHTML='<p>Корзина очищена.</p>';
+// });
+
+// //Назначаем обработчики для кнопок добавления в корзину
+// dob_korzinu.forEach(button=>{
+//   button.addEventListener('click',dob_v_kozinu);
+// });
+
+
+
+
+
+
+
+
+// 109
+// function displayJsonArray(jsonString) {
+//   try {
+//     // Пытаемся распарсить JSON
+//     const parsedData = JSON.parse(jsonString);
+
+//     // Проверяем, что результат — массив
+//     if (!Array.isArray(parsedData)) {
+//       throw new Error('JSON не содержит массив');
+//     }
+
+//     // Получаем элемент, куда будем выводить результат
+//     const container = document.getElementById('output');
+
+//     // Создаём элемент <ul>
+//     const ul = document.createElement('ul');
+
+//     // Добавляем каждый элемент массива как <li>
+//     parsedData.forEach(item => {
+//       const li = document.createElement('li');
+//       // Преобразуем элемент в строку, если это не строка
+//       li.textContent = typeof item === 'string' ? item : JSON.stringify(item);
+//       ul.appendChild(li);
+//     });
+
+//     // Очищаем контейнер и добавляем список
+//     container.innerHTML = '';
+//     container.appendChild(ul);
+//   } catch (error) {
+//     // Если произошла ошибка — выводим сообщение
+//     const container = document.getElementById('output');
+//     container.innerHTML = '<p>На странице случилась ошибка</p>';
+//   }
+// }
+
+// // Пример с корректным JSON
+// displayJsonArray('["Яблоко", "Банан", "Апельсин"]');
+
+// // // Пример с некорректным JSON
+// // displayJsonArray('{некорректный json}');
+
+// const person={
+//     name:'John',
+//     age:30,
+//     city:'New York'
+// };
+// for (let key in person){
+//     console.log(key+':'+ person[key]);
+// }
+
+
+// const salaries = {
+//   "Андрей": 24000,
+//   "Даня": 34000,
+//   "Маша": 55000
+// };
+
+// for (let name in salaries) {
+//   let salary = salaries[name] + "₽";
+//   console.log(`${name}: ${salary}`);
+// }
+
+
+
+// class Product {
+//     constructor(id, name, price) {
+//         this.id = id;
+//         this.name = name;
+//         this.price = price;
+//     }
+// }
+
+// class Cart {
+//     constructor() {
+//         this.items = new Map(); // id товара -> { товар, количество }
+//     }
+
+//     add(product, quantity = 1) {
+//         const id = product.id;
+//         if (this.items.has(id)) {
+//             // Товар уже есть — увеличиваем количество
+//             const existing = this.items.get(id);
+//             existing.quantity += quantity;
+//         } else {
+//             // Новый товар
+//             this.items.set(id, { product, quantity });
+//         }
+//     }
+
+//     remove(productId) {
+//         this.items.delete(productId);
+//     }
+
+//     getTotal() {
+//         let total = 0;
+//         for (const { product, quantity } of this.items.values()) {
+//             total += product.price * quantity;
+//         }
+//         return total;
+//     }
+// }
+
+// // Пример использования
+// const cart = new Cart();
+// cart.add(new Product(1, 'Яблоко', 2.5));
+// cart.add(new Product(2, 'Банан', 0.5), 3); // Добавляем 3 банана
+// console.log(cart.getTotal()); // Выведет: 4
+
+
+// class Pole{
+//     constructor(nomer,trava,nazvanie, stoimosty){
+//         this.nomer=nomer;
+//         this.trava=trava;
+//         this.nazvanie=nazvanie;
+//         this.stoimosty=stoimosty;
+//     }
+// }
+//  class Pokupka{
+//     constructor(){
+//         this.wes=new Map();
+//     }
+//     kupity(pole,kolvo=1,ghivnosty=2){
+//         const nomer=pole.nomer;
+//         if(this.wes.has(nomer)){
+//             //Поле уже есть в наличии-увеличиваем количество
+//             const pribavity=this.wes.get(nomer);
+//             pribavity.kolvo+=kolvo;
+//             pribavity.ghivnosty+=ghivnosty;
+//         }
+//         else{
+//             //Новое поле
+//             this.wes.set(nomer,{pole,kolvo,ghivnosty})
+//         }
+//     }
+//     udality(nomer){
+//         return this.wes.delete(nomer);
+//     }
+//     itogo(){
+//         let itog=0;
+//         for (const{pole,kolvo,ghivnosty} of this.wes.values()){
+//             itog+=pole.stoimosty*kolvo*ghivnosty;
+//         }
+//         return itog;
+//     }
+//  }
+//   const pokupayu=new Pokupka();
+//   pokupayu.kupity(new Pole(1,"Zelenaya","Rechka",40000));
+//    pokupayu.kupity(new Pole(1,"Zelenaya","Rechka",50000));
+//   pokupayu.kupity(new Pole(2,"Gheltaya","Pustinya",10000),3,5);
+//   console.log(pokupayu.itogo());
+//   pokupayu.udality(1);
+//    console.log(pokupayu.itogo());
+//    console.log(pokupayu.wes.size);
+//    for (const [key,value] of pokupayu.wes){
+//     console.log(`${key}:${value}`)
+//    };
+//    console.log([...pokupayu.wes.keys()]);
+//    console.log([...pokupayu.wes.values()]);
+//    console.log([...pokupayu.wes.entries()]);
+   
+
+//    // Или, если добавили метод getCount():
+// // console.log("Количество элементов:", pokupayu.getCount());
+
+// class Pole {
+//   constructor(nomer, trava, nazvanie, stoimosty) {
+//     this.nomer = nomer;
+//     this.trava = trava;
+//     this.nazvanie = nazvanie;
+//     this.stoimosty = stoimosty;
+//   }
+// }
+
+// class Pokupka {
+//   constructor() {
+//     this.wes = new Map();
+//   }
+
+//   kupity(pole, kolvo = 1, ghivnosty = 2) {
+//     const nomer = pole.nomer;
+
+//     if (this.wes.has(nomer)) {
+//       // Поле уже есть — увеличиваем количество и обновляем живучесть
+//       const pribavity = this.wes.get(nomer);
+//       pribavity.kolvo += kolvo; // += вместо =
+//       pribavity.ghivnosty = ghivnosty; // сохраняем новую живучесть
+//     } else {
+//       // Новое поле
+//       this.wes.set(nomer, { pole, kolvo, ghivnosty });
+//     }
+//   }
+
+//   udality(nomer) {
+//     return this.wes.delete(nomer);
+//   }
+
+//   itogo() {
+//     let itog = 0;
+//     for (const { pole, kolvo, ghivnosty } of this.wes.values()) {
+//       itog += pole.stoimosty * kolvo * ghivnosty; // += вместо =
+//     }
+//     return itog;
+//   }
+
+//   // Новый метод forEach
+//   forEach(callback) {
+//     this.wes.forEach((value, key) => {
+//       callback(value, key, this);
+//     });
+//   }
+// }
+
+// // Тестирование
+// const pokupayu = new Pokupka();
+// pokupayu.kupity(new Pole(1, "Zelenaya", "Rechka", 40000));
+// pokupayu.kupity(new Pole(1, "Zelenaya", "Rechka", 50000), 2); // добавим ещё 2 поля №1
+// pokupayu.kupity(new Pole(2, "Gheltaya", "Pustinya", 10000), 3, 5);
+
+// console.log("Общая стоимость:", pokupayu.itogo()); // 190000
+
+// pokupayu.udality(1);
+// console.log("После удаления поля №1:", pokupayu.itogo()); // 150000
+// console.log("Количество полей в коллекции:", pokupayu.wes.size); // 1
+
+// // Использование нового метода forEach
+// console.log("\nИнформация о полях через forEach:");
+// pokupayu.forEach((poleInfo, nomer) => {
+//   console.log(`Поле №${nomer}: ${poleInfo.pole.nazvanie}, количество: ${poleInfo.kolvo}, живучесть: ${poleInfo.ghivnosty}`);
+// });
+
+// // Остальные методы для демонстрации
+// console.log("\nКлючи:", [...pokupayu.wes.keys()]);
+// console.log("Значения:", [...pokupayu.wes.values()]);
+// console.log("Записи:", [...pokupayu.wes.entries()]);
+
+
+// function User(name) {
+//   this.name = name;
+// }
+
+// User.prototype.sayHi = function() {
+//   console.log(`Hi, I'm ${this.name}`);
+// };
+
+// const alice = new User("Alice");
+// const bob = new User("Bob");
+
+// alice.sayHi(); // "Hi, I'm Alice"
+// bob.sayHi();  // "Hi, I'm Bob"
+
+
+
+// class Person {
+//   constructor(name) {
+//     this.name = name;
+//   }
+  
+//   greet() {
+//     console.log(`Hello, I'm ${this.name}`);
+//   }
+// }
+
+// const tom = new Person("Tom");
+// tom.greet(); // "Hello, I'm Tom"
+
+// console.log(Object.getPrototypeOf(tom) === Person.prototype); // true
+
+
+
+// const grandparent = {
+//   familyName: "Smith"
+// };
+
+// const parent = Object.create(grandparent);
+// parent.profession = "Engineer";
+
+// const child = Object.create(parent);
+// child.name = "Alice";
+
+// console.log(child.name);        // "Alice" (свойство объекта)
+// console.log(child.profession);  // "Engineer" (из parent)
+// console.log(child.familyName);  // "Smith" (из grandparent)
+// console.log(child.age);       // undefined (не найдено нигде в цепочке)
+// console.log(child.hasOwnProperty("name"));     // true
+// console.log(child.hasOwnProperty("familyName")); // false
+
+
+
+// const person = {
+//   sayName() {
+//     console.log(`My name is ${this.name}`);
+//   }
+// };
+
+// const john = Object.create(person);
+// john.name = "John";
+// john.sayName(); // "My name is John"
+
+
+
+
+// const parent = {
+//   greet() {
+//     console.log("Hello!");
+//   }
+// };
+
+// const child = {};
+// Object.setPrototypeOf(child, parent);
+// child.greet(); // "Hello!"
+
+// console.log(Object.getPrototypeOf(child) === parent); // true
+
+
+
+// //120
+//  // По ID
+//  const title = document.getElementById('mainTitle')
+// // По классу (возвращает коллекцию)
+//  const paragraphs = document.getElementsByClassName('text');
+
+//  // По тегу
+//  const spans = document.getElementsByTagName('span');
+
+//  // Первый элемент по CSS‑селектору
+//  const firstParagraph = document.querySelector('.text');
+
+//  // Все элементы по CSS‑селектору
+//  const allParagraphs = document.querySelectorAll('.text');
+// // Изменение текста
+// title.textContent = 'Новый заголовок';
+
+// // Изменение HTML
+// firstParagraph.innerHTML = '<strong>Жирный текст</strong>';
+
+// // Изменение атрибутов
+// title.setAttribute('title', 'Подсказка при наведении');
+// title.id = 'newId'; // прямое изменение ID
+// // Один стиль
+// title.style.color = 'red';
+// title.style.fontSize = '24px';
+
+// // Несколько стилей через classList
+// title.classList.add('highlight'); // добавить класс
+// title.classList.remove('highlight'); // удалить класс
+// title.classList.toggle('hidden'); // переключить класс
+// // Создание нового элемента
+// const newParagraph = document.createElement('p');
+// newParagraph.textContent = 'Это новый абзац';
+// newParagraph.className = 'text';
+
+// // Добавление в конец контейнера
+// const container = document.querySelector('.container');
+// container.appendChild(newParagraph);
+
+// // Вставка перед другим элементом
+// const span = document.querySelector('span');
+// container.insertBefore(newParagraph, span);
+// // Удаление элемента
+// // newParagraph.remove();
+
+// // Или через родителя
+// // container.removeChild(span);
+
+// //120_1
+// //по id
+// const zagolovok=document.getElementById('zagolovok')
+// //Возвращает коллекцию
+// // const text1=document.getElementsByClassName('text1');
+// //по тегу
+// const spans=document.getElementsByTagName('span');
+// //Первый элемент по CSS селектору
+// const text=document.getElementById('text1');
+// //Все элементы по CSS селектору
+
+// //Второй элемент по CSS селектору
+// const textd=document.getElementById('text2');
+// //Третий  элемент по CSS селектору
+// const text3=document.querySelector('.text3');
+// //Четвертый элемент по CSS селектору
+// const text4=document.querySelector('.text4');
+// //Пятый элемент по CSS селектору
+// const text5=document.getElementById('text5');
+// //Шестой элемент по CSS селектору
+// const text6=document.getElementById('text6');
+// const element=document.querySelector('.Element')
+// zagolovok.textContent="Новый заголовок для меня";
+// text.innerHTML='<strong>Текст пожирнел</strong>'
+// //Определение по ID
+// text.style.color='green';
+// text.style.fontSize='25px';
+// text.style.width='300px';
+// text.style.padding='20px';
+// text.style.border='solid,2px';
+// text.style.width='200px';
+// text.style.height='30px';
+// text.style.background='red'
+
+// textd.style.color='green';
+// textd.style.fontSize='25px';
+// textd.style.width='300px';
+// textd.style.padding='20px';
+// textd.style.border='solid,2px';
+// textd.style.width='200px';
+// textd.style.height='30px';
+// textd.style.background='red'
+
+
+// text5.style.cssText = 'color: red; width:250px;font-size: 24px; background: yellow;';
+
+// text6.style.setProperty('background-color', 'green');
+// text6.style.setProperty('font-size', '24px');
+// text6.style.setProperty('margin', '0px');
+// text6.style.setProperty('width', '250px');
+// text6.style.setProperty('height', '40px');
+// text6.style.setProperty('color', 'orange');
+
+// //Определение по классу
+// //метод setAttribute
+// text3.setAttribute('style', 'color: blue; font-weight: bold;font-size:20px;background:orange;width:250px;');
+
+// //Создание элемента
+// const style = document.createElement('style');
+// style.textContent = `
+//   .text4 {
+//     color: green;
+//     font-style: italic;
+//     font-weight:bold;
+//     font-size:25px;
+//     width:250px;
+//     background:yellow;
+//   }
+// `;
+// document.head.appendChild(style);
+
+
+
+// //Через CSS  и класс который мы создаемб бывший класс В HTML Element
+// element.classList.add('highlight');      // добавить класс
+// element.classList.remove('highlight'); // удалить класс
+// element.classList.toggle('highlight');  // переключить класс
+// element.classList.contains('highlight'); // проверить наличие класса
+
+// //Создание нового элемента
+// const newText=document.createElement('p');
+// newText.textContent='Мое новое предложение';
+// newText.className='love';
+
+// // Добавление в конец контейнера
+// const container = document.querySelector('.container');
+// container.appendChild(newText);
+
+// // Вставка перед другим элементом
+// const span = document.querySelector('span');
+// span.setAttribute('style', 'color: blue; font-weight: bold;font-size:20px;background:orange;width:250px;');
+// container.insertBefore(newText, span);
+
+// // //Удаление элемента
+// // newText.remove();
+
+// // //Или через родителя
+// // container.removeChild(span);
+
+
+
+// //121
+// document.getElementById('myButton').addEventListener('click', function() {
+//     const message=document.getElementById('message').textContent = 'Кнопка была нажата!';
+   
+// });
+
+
+// //121_1
+// document.getElementById('myButton').addEventListener('click', function() {
+//   document.getElementById('message').textContent = 'Кнопка была нажата!';
+// });
+
+
+// //121_2
+// document.getElementById('myButton').addEventListener('click', function() {
+//   const messageElement = document.getElementById('message');
+//   messageElement.textContent = 'Кнопка была нажата!';
+  
+//   // Меняем стили элемента динамически
+//   messageElement.style.color = 'green';
+//   messageElement.style.fontWeight = 'bold';
+//   messageElement.style.fontSize = '24px';
+//   messageElement.style.background = 'yellow';
+//   messageElement.style.height = '40px';
+//   messageElement.style.width = '300px';
+
+
+  
+//   // Меняем стиль кнопки после нажатия
+//   this.style.backgroundColor = 'darkblue';
+//   this.style.color = 'yellow';
+//   this.style.fontFamily = 'Italic';
+//   this.style.transform = 'scale(1.05)';
+// });
+
+
+//122
+// document.getElementById('addTask').addEventListener('click', function() {
+//     const taskText = document.getElementById('taskInput').value;
+//     if (taskText.trim() === '') return;
+
+//     const li = document.createElement('li');
+//     li.textContent = taskText;
+
+//     const deleteBtn = document.createElement('button');
+//     deleteBtn.textContent = 'Удалить';
+//     deleteBtn.addEventListener('click', function() {
+//         li.remove();
+//     });
+
+//     li.appendChild(deleteBtn);
+//     document.getElementById('taskList').appendChild(li);
+//     document.getElementById('taskInput').value = '';
+// });
+
+
+
+// //123
+// document.getElementById('themeToggle').addEventListener('click', function() {
+//     document.body.classList.toggle('dark-theme');
+// });
+
+
+
+// //124
+// document.getElementById('generateTable').addEventListener('click', function() {
+//     const table = document.createElement('table');
+//     table.border = '1';
+
+//     for (let i = 0; i < 3; i++) {
+//         const row = document.createElement('tr');
+//         for (let j = 0; j < 3; j++) {
+//             const cell = document.createElement('td');
+//             cell.textContent = `Ячейка ${i+1},${j+1}`;
+//             row.appendChild(cell);
+//         }
+//         table.appendChild(row);
+//     }
+
+//     document.getElementById('tableContainer').innerHTML = '';
+//     document.getElementById('tableContainer').appendChild(table);
+// });
+
+
+
+// document.querySelectorAll('button[nashi_video]').forEach(button => {
+//             button.addEventListener('click', () => {
+//                 const video = button.getAttribute('nashi_video') === 'true' || false;
+//                 button.setAttribute('nashi_video', !video);
+//                 const smotrety = document.getElementById(button.getAttribute('smotrety'));
+//                 smotrety.hidden = video;
+//             });
+//         });
+
+// document.querySelectorAll('button[nashi_slovary]').forEach(button => {
+//             button.addEventListener('click', () => {
+//                 const slovary = button.getAttribute('nashi_slovary') === 'true' || false;
+//                 button.setAttribute('nashi_slovary', !slovary);
+//                 const uchity = document.getElementById(button.getAttribute('uchity'));
+//                 uchity.hidden = slovary;
+//             });
+//         });
+
+//  document.querySelectorAll('button[nashi_priklucheniya]').forEach(button => {
+//             button.addEventListener('click', () => {
+//                 const priklucheniya = button.getAttribute('nashi_priklucheniya') === 'true' || false;
+//                 button.setAttribute('nashi_priclucheniya', !priklucheniya);
+//                 const poehali = document.getElementById(button.getAttribute('poehali'));
+//                 poehali.hidden = priklucheniya;
+//             });
+//         });
+
+
+//  document.querySelectorAll('button[nashi_dopy]').forEach(button => {
+//             button.addEventListener('click', () => {
+//                 const dopy = button.getAttribute('nashi_dopy') === 'true' || false;
+//                 button.setAttribute('nashi_dopy', !dopy);
+//                 const poluchity = document.getElementById(button.getAttribute('poluchity'));
+//                 poluchity.hidden = dopy;
+//             });
+//         });
+
+
+
+
+
+
+
+
+
+
